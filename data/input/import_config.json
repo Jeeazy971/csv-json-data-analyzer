@@ -1,0 +1,5 @@
+{
+    "source": "orders_import",
+    "currency": "EUR",
+    "allow_invalid_rows": true
+}

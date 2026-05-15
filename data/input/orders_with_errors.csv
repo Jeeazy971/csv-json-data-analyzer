@@ -1,0 +1,8 @@
+id,customer,total,status
+1, Alice ,120.50,PAID
+2,Bob,invalid,pending
+3,Chloe,75.00,paid
+4,Dylan,40.00,
+5,Emma,90.00,CANCELLED
+bad_id,Frank,25.00,paid
+6,Gina,15.50,paid
