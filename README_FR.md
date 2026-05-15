@@ -39,7 +39,7 @@ Les objectifs principaux de ce dépôt sont de :
 | 15.7 | Lire un CSV avec `csv.DictReader` | Validé |
 | 15.8 | Écrire un CSV avec `csv.DictWriter` | Validé |
 | 15.9 | Nettoyer et convertir des données CSV | Validé |
-| 15.10 | Gérer les erreurs de fichier et de données | À faire |
+| 15.10 | Gérer les erreurs de fichier et de données | Validé |
 | 15.11 | Mini-consolidation CSV/JSON | À faire |
 | 15.12 | Projet final CSV/JSON analyzer | À faire |
 
@@ -51,13 +51,17 @@ Les objectifs principaux de ce dépôt sont de :
 csv-json-data-analyzer/
 ├── data/
 │   ├── input/
-│   │   └── products.csv
+│   │   ├── products.csv
+│   │   ├── import_config.json
+│   │   ├── broken_config.json
+│   │   └── orders_with_errors.csv
 │   └── output/
 │       └── .gitkeep
 ├── exercises/
 │   ├── block_15_1_dict_vs_json.py
 │   ├── block_15_json_basics.py
-│   └── block_15_csv_basics.py
+│   ├── block_15_csv_basics.py
+│   └── block_15_10_error_handling.py
 ├── README.md
 ├── README_FR.md
 └── .gitignore
@@ -79,6 +83,7 @@ Exemples :
 python exercises/block_15_1_dict_vs_json.py
 python exercises/block_15_json_basics.py
 python exercises/block_15_csv_basics.py
+python exercises/block_15_10_error_handling.py
 ```
 
 L’exercice CSV basics lit les données depuis :
@@ -91,6 +96,20 @@ et exporte un fichier CSV nettoyé vers :
 
 ```text
 data/output/clean_products.csv
+```
+
+L’exercice de gestion des erreurs lit les données depuis :
+
+```text
+data/input/import_config.json
+data/input/broken_config.json
+data/input/orders_with_errors.csv
+```
+
+et exporte un résumé d’import vers :
+
+```text
+data/output/import_summary.json
 ```
 
 Les fichiers générés dans `data/output/` sont ignorés par Git.
@@ -159,6 +178,23 @@ Il couvre :
 
 ---
 
+### 15.10 — Gestion des erreurs fichier/données
+
+Cet exercice permet de pratiquer la gestion des erreurs courantes lors de la manipulation de fichiers JSON et CSV.
+
+Il couvre :
+
+- la gestion des fichiers absents avec `FileNotFoundError`
+- la gestion du JSON invalide avec `json.JSONDecodeError`
+- la gestion des colonnes CSV manquantes avec `KeyError`
+- la gestion des conversions numériques invalides avec `ValueError`
+- la vérification des colonnes CSV obligatoires
+- la séparation des lignes valides et invalides
+- la construction d’un résumé d’import
+- l’export du résumé en JSON
+
+---
+
 ## Objectif du projet final
 
 Le projet final analysera des données structurées provenant de fichiers CSV et JSON.
@@ -205,19 +241,18 @@ Exemple de sortie finale :
 
 ---
 
-## Cas limites à prévoir
+## Cas limites couverts
 
-Les exercices et le projet devront gérer :
+Les exercices couvrent déjà :
 
 - les fichiers absents
-- les fichiers vides
-- les listes vides
 - le contenu JSON invalide
+- les valeurs CSV vides ou invalides
 - les colonnes CSV manquantes
-- les lignes CSV vides
 - les valeurs numériques invalides
-- les catégories ou statuts inconnus
+- les champs de statut vides
 - les dossiers de sortie qui n’existent pas encore
+- les fichiers générés ignorés par Git
 
 ---
 
@@ -255,6 +290,7 @@ Progression actuelle :
 ```text
 Bases JSON : validées
 Bases CSV : validées
-Gestion des erreurs fichier/données : prochaine étape
+Gestion des erreurs fichier/données : validée
+Mini-consolidation CSV/JSON : prochaine étape
 Projet final CSV/JSON analyzer : à venir
 ```

@@ -38,7 +38,7 @@ The main objectives of this repository are to:
 | 15.7 | Read CSV with `csv.DictReader` | Completed |
 | 15.8 | Write CSV with `csv.DictWriter` | Completed |
 | 15.9 | Clean and convert CSV data | Completed |
-| 15.10 | Handle file and data errors | To do |
+| 15.10 | Handle file and data errors | Completed |
 | 15.11 | CSV/JSON consolidation | To do |
 | 15.12 | Final CSV/JSON analyzer project | To do |
 
@@ -50,13 +50,17 @@ The main objectives of this repository are to:
 csv-json-data-analyzer/
 ├── data/
 │   ├── input/
-│   │   └── products.csv
+│   │   ├── products.csv
+│   │   ├── import_config.json
+│   │   ├── broken_config.json
+│   │   └── orders_with_errors.csv
 │   └── output/
 │       └── .gitkeep
 ├── exercises/
 │   ├── block_15_1_dict_vs_json.py
 │   ├── block_15_json_basics.py
-│   └── block_15_csv_basics.py
+│   ├── block_15_csv_basics.py
+│   └── block_15_10_error_handling.py
 ├── README.md
 ├── README_FR.md
 └── .gitignore
@@ -78,6 +82,7 @@ Examples:
 python exercises/block_15_1_dict_vs_json.py
 python exercises/block_15_json_basics.py
 python exercises/block_15_csv_basics.py
+python exercises/block_15_10_error_handling.py
 ```
 
 The CSV basics exercise reads data from:
@@ -90,6 +95,20 @@ and exports a cleaned CSV file to:
 
 ```text
 data/output/clean_products.csv
+```
+
+The error handling exercise reads data from:
+
+```text
+data/input/import_config.json
+data/input/broken_config.json
+data/input/orders_with_errors.csv
+```
+
+and exports an import summary to:
+
+```text
+data/output/import_summary.json
 ```
 
 Generated files inside `data/output/` are ignored by Git.
@@ -158,6 +177,23 @@ It covers:
 
 ---
 
+### 15.10 — File and Data Error Handling
+
+This exercise practices handling common file and data errors while working with JSON and CSV files.
+
+It covers:
+
+- Handling missing files with `FileNotFoundError`
+- Handling invalid JSON with `json.JSONDecodeError`
+- Handling missing CSV columns with `KeyError`
+- Handling invalid numeric conversions with `ValueError`
+- Checking required CSV columns
+- Separating valid rows from invalid rows
+- Building an import summary
+- Exporting the summary as JSON
+
+---
+
 ## Final Project Goal
 
 The final project will analyze structured data from CSV and JSON files.
@@ -204,19 +240,18 @@ Through this repository, I am practicing:
 
 ---
 
-## Edge Cases to Consider
+## Edge Cases Covered
 
-The exercises and project should handle:
+The exercises already cover:
 
 - Missing files
-- Empty files
-- Empty lists
 - Invalid JSON content
+- Empty or invalid CSV values
 - Missing CSV columns
-- Empty CSV rows
 - Invalid numeric values
-- Unknown categories or statuses
+- Empty status fields
 - Output folders that do not exist yet
+- Generated output files ignored by Git
 
 ---
 
@@ -254,6 +289,7 @@ Current progress:
 ```text
 JSON basics: completed
 CSV basics: completed
-File/data error handling: next step
+File/data error handling: completed
+CSV/JSON consolidation: next step
 Final CSV/JSON analyzer project: upcoming
 ```
