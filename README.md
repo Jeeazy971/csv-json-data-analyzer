@@ -39,7 +39,7 @@ The main objectives of this repository are to:
 | 15.8 | Write CSV with `csv.DictWriter` | Completed |
 | 15.9 | Clean and convert CSV data | Completed |
 | 15.10 | Handle file and data errors | Completed |
-| 15.11 | CSV/JSON consolidation | To do |
+| 15.11 | CSV/JSON consolidation | Completed |
 | 15.12 | Final CSV/JSON analyzer project | To do |
 
 ---
@@ -53,14 +53,17 @@ csv-json-data-analyzer/
 │   │   ├── products.csv
 │   │   ├── import_config.json
 │   │   ├── broken_config.json
-│   │   └── orders_with_errors.csv
+│   │   ├── orders_with_errors.csv
+│   │   ├── sales_config.json
+│   │   └── sales.csv
 │   └── output/
 │       └── .gitkeep
 ├── exercises/
 │   ├── block_15_1_dict_vs_json.py
 │   ├── block_15_json_basics.py
 │   ├── block_15_csv_basics.py
-│   └── block_15_10_error_handling.py
+│   ├── block_15_10_error_handling.py
+│   └── block_15_11_consolidation.py
 ├── README.md
 ├── README_FR.md
 └── .gitignore
@@ -83,6 +86,7 @@ python exercises/block_15_1_dict_vs_json.py
 python exercises/block_15_json_basics.py
 python exercises/block_15_csv_basics.py
 python exercises/block_15_10_error_handling.py
+python exercises/block_15_11_consolidation.py
 ```
 
 The CSV basics exercise reads data from:
@@ -109,6 +113,19 @@ and exports an import summary to:
 
 ```text
 data/output/import_summary.json
+```
+
+The consolidation exercise reads data from:
+
+```text
+data/input/sales_config.json
+data/input/sales.csv
+```
+
+and exports a sales summary to:
+
+```text
+data/output/sales_summary.json
 ```
 
 Generated files inside `data/output/` are ignored by Git.
@@ -191,6 +208,24 @@ It covers:
 - Separating valid rows from invalid rows
 - Building an import summary
 - Exporting the summary as JSON
+
+---
+
+### 15.11 — CSV/JSON Consolidation
+
+This exercise consolidates the main CSV and JSON concepts in a simpler end-to-end workflow.
+
+It covers:
+
+- Reading a JSON configuration file with `json.load()`
+- Reading a CSV sales file with `csv.DictReader`
+- Cleaning text values with `.strip()` and `.lower()`
+- Converting values with `int()` and `float()`
+- Calculating revenue without tax
+- Calculating tax and revenue with tax
+- Counting sales by category
+- Building a sales summary
+- Exporting the summary as JSON with `json.dump()`
 
 ---
 
@@ -290,6 +325,6 @@ Current progress:
 JSON basics: completed
 CSV basics: completed
 File/data error handling: completed
-CSV/JSON consolidation: next step
-Final CSV/JSON analyzer project: upcoming
+CSV/JSON consolidation: completed
+Final CSV/JSON analyzer project: next step
 ```

@@ -40,7 +40,7 @@ Les objectifs principaux de ce dépôt sont de :
 | 15.8 | Écrire un CSV avec `csv.DictWriter` | Validé |
 | 15.9 | Nettoyer et convertir des données CSV | Validé |
 | 15.10 | Gérer les erreurs de fichier et de données | Validé |
-| 15.11 | Mini-consolidation CSV/JSON | À faire |
+| 15.11 | Mini-consolidation CSV/JSON | Validé |
 | 15.12 | Projet final CSV/JSON analyzer | À faire |
 
 ---
@@ -54,14 +54,17 @@ csv-json-data-analyzer/
 │   │   ├── products.csv
 │   │   ├── import_config.json
 │   │   ├── broken_config.json
-│   │   └── orders_with_errors.csv
+│   │   ├── orders_with_errors.csv
+│   │   ├── sales_config.json
+│   │   └── sales.csv
 │   └── output/
 │       └── .gitkeep
 ├── exercises/
 │   ├── block_15_1_dict_vs_json.py
 │   ├── block_15_json_basics.py
 │   ├── block_15_csv_basics.py
-│   └── block_15_10_error_handling.py
+│   ├── block_15_10_error_handling.py
+│   └── block_15_11_consolidation.py
 ├── README.md
 ├── README_FR.md
 └── .gitignore
@@ -84,6 +87,7 @@ python exercises/block_15_1_dict_vs_json.py
 python exercises/block_15_json_basics.py
 python exercises/block_15_csv_basics.py
 python exercises/block_15_10_error_handling.py
+python exercises/block_15_11_consolidation.py
 ```
 
 L’exercice CSV basics lit les données depuis :
@@ -110,6 +114,19 @@ et exporte un résumé d’import vers :
 
 ```text
 data/output/import_summary.json
+```
+
+L’exercice de consolidation lit les données depuis :
+
+```text
+data/input/sales_config.json
+data/input/sales.csv
+```
+
+et exporte un résumé des ventes vers :
+
+```text
+data/output/sales_summary.json
 ```
 
 Les fichiers générés dans `data/output/` sont ignorés par Git.
@@ -192,6 +209,24 @@ Il couvre :
 - la séparation des lignes valides et invalides
 - la construction d’un résumé d’import
 - l’export du résumé en JSON
+
+---
+
+### 15.11 — Mini-consolidation CSV/JSON
+
+Cet exercice consolide les principales notions CSV et JSON dans un flux simple de bout en bout.
+
+Il couvre :
+
+- la lecture d’un fichier de configuration JSON avec `json.load()`
+- la lecture d’un fichier CSV de ventes avec `csv.DictReader`
+- le nettoyage des textes avec `.strip()` et `.lower()`
+- la conversion des valeurs avec `int()` et `float()`
+- le calcul du chiffre d’affaires hors taxe
+- le calcul de la taxe et du chiffre d’affaires TTC
+- le comptage des ventes par catégorie
+- la construction d’un résumé des ventes
+- l’export du résumé en JSON avec `json.dump()`
 
 ---
 
@@ -291,6 +326,6 @@ Progression actuelle :
 Bases JSON : validées
 Bases CSV : validées
 Gestion des erreurs fichier/données : validée
-Mini-consolidation CSV/JSON : prochaine étape
-Projet final CSV/JSON analyzer : à venir
+Mini-consolidation CSV/JSON : validée
+Projet final CSV/JSON analyzer : prochaine étape
 ```
